@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
-
+import { BASE_API_URL } from '../config/Config';
 const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
@@ -16,7 +16,7 @@ const Create = () => {
         setIsPending(true);
 
         setTimeout(() => {
-            fetch(`http://localhost:8000/blogs`,{
+            fetch(`${BASE_API_URL}/blogs`,{
                 method: 'POST',
                 headers: { "Content-type": "application/json"},
                 body: JSON.stringify(blog)
